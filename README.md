@@ -50,37 +50,13 @@ Four layers. Each one has a job — raw capture, cleaning, business logic, and q
 
 ```mermaid
 flowchart LR
-    subgraph BRONZE["🥉 BRONZE — Raw Ingest"]
-        B1[RAW_TRANSACTIONS]
-        B2[RAW_ACCOUNT]
-        B3[RAW_CUSTOMER]
-        B4[RAW_RULE]
-        B5[RAW_WATCHLIST]
-    end
-
-    subgraph SILVER["🥈 SILVER — Cleaned & Standardized"]
-        S1[TRANSACTIONS]
-        S2[ACCOUNT]
-        S3[CUSTOMER]
-        S4[WATCHLIST]
-    end
-
-    subgraph GOLD["🥇 GOLD — Star Schema + Rule Engine"]
-        G1[FACT_TRANSACTIONS]
-        G2[FACT_ALERTS]
-        G3[6× DIM tables]
-        G4[9× VW_ KPI views]
-    end
-
-    subgraph AUDIT["🔍 AUDIT — Data Quality & Exclusions"]
-        A1[DQ_RESULTS<br/>47 automated checks]
-        A2[EXCLUDED_* tables]
-    end
-
-    BRONZE --> SILVER --> GOLD
-    SILVER -.excluded records.-> AUDIT
-    GOLD -.validated by.-> AUDIT
+    A["🥉 BRONZE\n5 raw source tables"] --> B["🥈 SILVER\ncleaned + flagged"]
+    B --> C["🥇 GOLD\nstar schema + rule engine"]
+    B -.excluded records.-> D["🔍 AUDIT\n47 automated checks"]
+    C -.validated by.-> D
 ```
+
+*(Bronze = 5 raw tables · Silver = cleaned/standardized tables · Gold = 3 fact tables + 6 dimension tables + 9 KPI views · Audit = DQ_RESULTS + excluded-record tables — full list below.)*
 
 | Layer | Job | Key move |
 |---|---|---|
@@ -107,20 +83,17 @@ Gold layer is a proper dimensional model — one central fact for transactions, 
 
 ```mermaid
 erDiagram
-    FACT_TRANSACTIONS }o--|| DIM_ACCOUNT : account_key
-    FACT_TRANSACTIONS }o--|| DIM_GEOGRAPHY : geo_key
-    FACT_TRANSACTIONS }o--|| DIM_DATE : date_key
-
-    FACT_ALERTS }o--|| DIM_ACCOUNT : account_key
-    FACT_ALERTS }o--|| DIM_RULE : rule_key
-    FACT_ALERTS }o--|| DIM_GEOGRAPHY : geo_key
-    FACT_ALERTS }o--|| DIM_DATE : date_key
-
-    FACT_CUSTOMER_RISK_SNAPSHOT }o--|| DIM_CUSTOMER : customer_key
-    FACT_CUSTOMER_RISK_SNAPSHOT }o--|| DIM_DATE : date_key
-
-    DIM_ACCOUNT }o--|| DIM_CUSTOMER : customer_key
-    DIM_WATCHLIST }o--|| DIM_GEOGRAPHY : geo_key
+    FACT_TRANSACTIONS }o--|| DIM_ACCOUNT : has
+    FACT_TRANSACTIONS }o--|| DIM_GEOGRAPHY : has
+    FACT_TRANSACTIONS }o--|| DIM_DATE : has
+    FACT_ALERTS }o--|| DIM_ACCOUNT : has
+    FACT_ALERTS }o--|| DIM_RULE : has
+    FACT_ALERTS }o--|| DIM_GEOGRAPHY : has
+    FACT_ALERTS }o--|| DIM_DATE : has
+    FACT_CUSTOMER_RISK_SNAPSHOT }o--|| DIM_CUSTOMER : has
+    FACT_CUSTOMER_RISK_SNAPSHOT }o--|| DIM_DATE : has
+    DIM_ACCOUNT }o--|| DIM_CUSTOMER : has
+    DIM_WATCHLIST }o--|| DIM_GEOGRAPHY : has
 ```
 
 <details>
@@ -216,13 +189,14 @@ All 4 rules read their thresholds from `bronze.raw_rule` at runtime — changing
 
 3 Tableau dashboards on Gold-layer facts/dimensions, connected via Tableau Relationships, Extract mode.
 
-| Dashboard | What it's for |
-|---|---|
-| **Compliance Executive Overview** | Volume, conversion, SLA — the numbers an exec checks weekly |
-| **Rule Performance & Tuning** | Which rules are pulling their weight, FPR by rule, tuning matrix |
-| **Geographic & Risk Segmentation** | Where the risk actually concentrates — country, segment, PEP |
+**Compliance Executive Overview** — volume, conversion, SLA: the numbers an exec checks weekly.
+![Compliance Executive Overview](dashboards/screenshots/compliance_executive_overview.png)
 
-*(Screenshots live at `dashboards/screenshots/*.png` in the repo — add your exports there.)*
+**Rule Performance & Tuning** — which rules are pulling their weight, FPR by rule, tuning matrix.
+![Rule Performance & Tuning](dashboards/screenshots/rule_performance_tuning.png)
+
+**Geographic & Risk Segmentation** — where the risk actually concentrates: country, segment, PEP.
+![Geographic & Risk Segmentation](dashboards/screenshots/geographic_risk_segmentation.png)
 
 ## Bugs I Found and Fixed
 
