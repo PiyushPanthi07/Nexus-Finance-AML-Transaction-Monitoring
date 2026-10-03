@@ -1,0 +1,6 @@
+alert_id,rule_id,account_id,transaction_id,alert_date,risk_score,disposition,disposition_date,time_to_disposition_days,is_sla_overdue_flag
+ALT001,RULE01,ACC1003,TXN0007,2026-06-13,78.50,false_positive,2026-06-25,12,FALSE
+ALT002,RULE02,ACC1004,TXN0009,2026-06-16,91.25,sar_filed,2026-07-08,22,FALSE
+ALT003,RULE03,ACC1004,TXN0008,2026-06-15,84.00,true_positive,2026-07-02,17,FALSE
+ALT004,RULE04,ACC1005,TXN0010,2026-06-18,55.00,false_positive,2026-06-20,2,FALSE
+ALT005,RULE03,ACC1005,TXN0010,2026-06-18,62.75,false_positive,2026-08-25,68,TRUE

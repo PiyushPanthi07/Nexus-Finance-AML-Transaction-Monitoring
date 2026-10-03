@@ -1,0 +1,6 @@
+customer_id_resolved,customer_id_raw_list,full_name_standardized,dob,age_years,ssn_id_number,is_id_format_valid,country_standardized,occupation_business_type,is_business_type_missing,pep_flag,risk_rating,onboarding_date,kyc_review_date
+CUST001,"CUST001;CUST002",John Smith,1985-04-12,41,123-45-6789,TRUE,US,Retail Sales Associate,FALSE,FALSE,Low,2023-01-15,2025-01-15
+CUST003,CUST003,Maria Gonzalez,1979-11-03,46,987-65-4321,TRUE,US,Restaurant Owner (NAICS 722511),FALSE,FALSE,Medium,2021-06-20,2025-06-20
+CUST004,CUST004,Ivan Petrov,1970-02-27,56,,FALSE,Russia,Import/Export Consultant,FALSE,TRUE,High,2022-03-10,2026-03-10
+CUST005,CUST005,Acme Trading LLC,,,N/A,FALSE,UK,Import/Export (NAICS 4235),FALSE,FALSE,Medium,2020-09-01,2025-09-01
+CUST006,CUST006,Lucia Fernandez,1998-07-19,27,552-11-908X,FALSE,US,Graduate Student,FALSE,FALSE,Low,2026-05-02,2026-05-02
