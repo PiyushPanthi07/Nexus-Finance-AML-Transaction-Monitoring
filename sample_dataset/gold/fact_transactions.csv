@@ -1,0 +1,10 @@
+transaction_key,account_key,geo_key,date_key,amount_usd,channel,direction,structuring_flag,rapid_movement_flag
+1,1,1,20260605,84.50,card,debit,FALSE,FALSE
+2,3,1,20260610,8200.00,cash,credit,TRUE,FALSE
+3,3,1,20260611,8750.00,cash,credit,TRUE,FALSE
+4,3,1,20260612,9300.00,cash,credit,TRUE,FALSE
+5,3,1,20260613,8900.00,cash,credit,TRUE,FALSE
+6,4,2,20260615,95000.00,wire,credit,FALSE,TRUE
+7,4,2,20260616,92000.00,wire,debit,FALSE,TRUE
+8,5,3,20260618,12500.00,wire,debit,FALSE,FALSE
+9,5,4,20260619,4300.00,wire,credit,FALSE,FALSE

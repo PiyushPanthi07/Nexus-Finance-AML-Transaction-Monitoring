@@ -1,0 +1,7 @@
+customer_key,customer_id,risk_rating,pep_flag,country_standardized,business_type,customer_base_risk_score,effective_date,end_date,is_current
+1,CUST001,Low,FALSE,US,Retail Sales Associate,10,2023-01-15,,TRUE
+2,CUST003,Medium,FALSE,US,Restaurant Owner (Cash-Intensive),35,2021-06-20,,TRUE
+3,CUST004,High,TRUE,Russia,Import/Export Consultant,85,2022-03-10,,TRUE
+4,CUST004,Medium,TRUE,Russia,Import/Export Consultant,65,2019-01-01,2022-03-09,FALSE
+5,CUST005,Medium,FALSE,UK,Import/Export,50,2020-09-01,,TRUE
+6,CUST006,Low,FALSE,US,Graduate Student,20,2026-05-02,,TRUE

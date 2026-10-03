@@ -1,0 +1,6 @@
+alert_key,account_key,rule_key,date_key,disposition_date_key,geo_key,risk_score,alert_to_sar_flag,is_sla_overdue_flag,time_to_disposition_days
+1,3,1,20260613,20260625,1,78.50,FALSE,FALSE,12
+2,4,2,20260616,20260708,2,91.25,TRUE,FALSE,22
+3,4,3,20260615,20260702,2,84.00,FALSE,FALSE,17
+4,5,4,20260618,20260620,3,55.00,FALSE,FALSE,2
+5,5,3,20260618,20260825,3,62.75,FALSE,TRUE,68
