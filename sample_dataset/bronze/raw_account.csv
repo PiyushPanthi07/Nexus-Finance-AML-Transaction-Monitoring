@@ -1,0 +1,7 @@
+account_id,customer_id,account_type,open_date,status,source_system,load_timestamp
+ACC1001,CUST001,checking,2023-01-20,active,CORE_BANKING,2026-06-30 02:05:00
+ACC1002,CUST002,savings,2023-01-22,active,CORE_BANKING,2026-06-30 02:05:00
+ACC1003,CUST003,business_checking,2021-06-25,active,CORE_BANKING,2026-06-30 02:05:00
+ACC1004,CUST004,wire,2022-03-15,active,CORE_BANKING,2026-06-30 02:05:00
+ACC1005,CUST005,business_checking,2020-09-05,active,CORE_BANKING,2026-06-30 02:05:00
+ACC1006,CUST006,checking,2026-05-10,active,CORE_BANKING,2026-06-30 02:05:00

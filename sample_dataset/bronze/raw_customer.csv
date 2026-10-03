@@ -1,0 +1,7 @@
+customer_id,full_name,dob,ssn_id_number,country,occupation_business_type,pep_flag,risk_rating,onboarding_date,kyc_review_date,source_system,load_timestamp
+CUST001,John Smith,1985-04-12,123-45-6789,US,Retail Sales Associate,FALSE,Low,2023-01-15,2025-01-15,KYC_SYS,2026-06-30 02:00:00
+CUST002,J. Smith,1985-04-12,123-45-6789,United States,Retail Sales Associate,FALSE,Low,2023-01-15,2025-01-15,KYC_SYS,2026-06-30 02:00:00
+CUST003,Maria Gonzalez,1979-11-03,987-65-4321,US,Restaurant Owner (NAICS 722511),FALSE,Medium,2021-06-20,2025-06-20,KYC_SYS,2026-06-30 02:00:00
+CUST004,Ivan Petrov,1970-02-27,,Russia,Import/Export Consultant,TRUE,High,2022-03-10,2026-03-10,KYC_SYS,2026-06-30 02:00:00
+CUST005,Acme Trading LLC,,N/A,England,Import/Export (NAICS 4235),FALSE,Medium,2020-09-01,2025-09-01,KYC_SYS,2026-06-30 02:00:00
+CUST006,Lucia Fernandez,1998-07-19,552-11-908X,US,Graduate Student,FALSE,Low,2026-05-02,2026-05-02,KYC_SYS,2026-06-30 02:00:00
